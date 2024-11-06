@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_partouche_app/pages/main_page.dart';
+import 'package:travel_partouche_app/pages/notes_page.dart';
+import 'package:travel_partouche_app/pages/profile_page.dart';
+import 'package:travel_partouche_app/pages/puzzle_list_page.dart';
 
 class NavigationPage extends StatelessWidget {
   const NavigationPage({super.key});
@@ -42,19 +45,19 @@ class NavigationPage extends StatelessWidget {
           case 1:
             return CupertinoTabView(
               builder: (BuildContext context) {
-                return const MainPage();
+                return PuzzleGamePage();
               },
             );
           case 2:
             return CupertinoTabView(
               builder: (BuildContext context) {
-                return const MainPage();
+                return const NotesPage();
               },
             );
           case 3:
             return CupertinoTabView(
               builder: (BuildContext context) {
-                return const MainPage();
+                return const AddProfilePage();
               },
             );
           default:

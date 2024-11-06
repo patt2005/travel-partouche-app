@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:travel_partouche_app/pages/main_page.dart';
+import 'package:travel_partouche_app/constants/consts.dart';
 import 'package:travel_partouche_app/pages/navigation_page.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -15,8 +15,13 @@ class _SplashscreenState extends State<Splashscreen>
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 3), () {
+    _initialize();
+  }
+
+  void _initialize() async {
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    cameraPosition = await getUserLocation();
+    await Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const NavigationPage()),
       );
