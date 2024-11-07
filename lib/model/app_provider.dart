@@ -16,9 +16,10 @@ class AppProvider extends ChangeNotifier {
   User? _userInfo;
   User? get userInfo => _userInfo;
 
-  // void setUserInfo(User user) {
-  //   _userInfo
-  // }
+  void setUserInfo(User user) {
+    _userInfo = user;
+    notifyListeners();
+  }
 
   void addNote(Note note) {
     _notes.add(note);

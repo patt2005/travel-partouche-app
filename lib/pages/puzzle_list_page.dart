@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_partouche_app/pages/puzzle_game_page.dart';
 
 class PuzzleGamePage extends StatelessWidget {
   final List<PuzzleGame> puzzles = [
@@ -34,7 +36,15 @@ class PuzzleGamePage extends StatelessWidget {
             return PuzzleCard(
               imageUrl: puzzle.imageUrl,
               title: puzzle.title,
-              onTap: () {},
+              onTap: () async {
+                await Navigator.of(context).push(
+                  CupertinoPageRoute(
+                    builder: (context) => PuzzleWidget(
+                      imageAssetPath: puzzle.imageUrl,
+                    ),
+                  ),
+                );
+              },
             );
           },
         ),
